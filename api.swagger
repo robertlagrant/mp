@@ -54,6 +54,8 @@ paths:
           description: the Product matching the input ID
           schema:
             $ref: '#/definitions/Product'
+        404:
+          description: The product was not found
     put:
       summary: update a product
       operationId: updateProduct
@@ -75,6 +77,8 @@ paths:
           description: Product updated
         400:
           description: Invalid input, Product invalid
+        404:
+          description: The product was not found
     delete:
       summary: delete a product by ID
       operationId: deleteProduct
@@ -91,6 +95,8 @@ paths:
           description: The Product matching that ID was deleted
         400:
           description: Invalid input; delete not performed
+        404:
+          description: The product was not found
 
   /product:
     post:
@@ -110,7 +116,7 @@ paths:
         400:
           description: Invalid input, Product invalid
         409:
-          description: An existing Product already exists
+          description: An existing Product already exists (not implemented)
   
 definitions:
   Product:
