@@ -1,0 +1,138 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  description: This is an API for a marketplace's products
+  title: Marketplace API
+  contact:
+    email: robertlagrant@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+    
+schemes:
+  - http
+  
+consumes:
+  - application/json
+  
+produces:
+  - application/json
+
+paths:
+  /products:
+    get:
+      summary: gets all products
+      operationId: getProducts
+      description: |
+        Retrieve all products in the marketplace
+      produces:
+      - application/json
+      responses:
+        200:
+          description: array of all products
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+        400:
+          description: bad input parameter
+
+  /product/{productId}:
+    get:
+      summary: get a product by ID
+      operationId: getProduct
+      description: |
+        Retrieve a single Product by ID
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: ID of product to retrieve
+          type: integer
+      responses:
+        200:
+          description: the Product matching the input ID
+          schema:
+            $ref: '#/definitions/Product'
+    put:
+      summary: update a product
+      operationId: updateProduct
+      description: |
+        Update a Product in the marketplace
+      parameters:
+        - name: productId
+          in: path
+          required: true
+          description: ID of product to update
+          type: integer
+        - name: product
+          in: body
+          description: Product to update
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        200:
+          description: Product updated
+        400:
+          description: Invalid input, Product invalid
+    delete:
+      summary: delete a product by ID
+      operationId: deleteProduct
+      description: |
+        Delete a single Product by ID
+      parameters:
+        - in: path
+          name: productId
+          required: true
+          description: ID of product to delete
+          type: integer
+      responses:
+        200:
+          description: The Product matching that ID was deleted
+        400:
+          description: Invalid input; delete not performed
+
+  /product:
+    post:
+      summary: add a product
+      operationId: createProduct
+      description: |
+        Add a Product to the marketplace
+      parameters:
+      - in: body
+        name: product
+        description: Product to create
+        schema:
+          $ref: '#/definitions/Product'
+      responses:
+        201:
+          description: Product created
+        400:
+          description: Invalid input, Product invalid
+        409:
+          description: An existing Product already exists
+  
+definitions:
+  Product:
+    type: object
+    required:
+    - id
+    - name
+    - price
+    - product_code
+    properties:
+      id:
+        type: integer
+        format: int32
+        example: 1
+      name:
+        type: string
+        example: Lavender heart
+      price:
+        type: string
+        format: string
+        example: £9.25
+      product_code:
+        type: string
+        format: string
+        example: 001

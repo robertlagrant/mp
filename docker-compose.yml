@@ -1,0 +1,15 @@
+version: "3"
+services:
+  mp-app:
+    image: robertlagrant/mp-app:v1
+    ports:
+      - "5000:5000"
+    environment:
+      - SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://marketplace:marketpassword@mp-db:5432/marketplace
+    depends_on:
+      - "mp-db"
+  mp-db:
+    image: robertlagrant/mp-db:v1
+    environment:
+      POSTGRES_USER: marketplace
+      POSTGRES_PASSWORD: marketpassword

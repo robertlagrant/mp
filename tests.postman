@@ -1,0 +1,342 @@
+{
+	"id": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+	"name": "drayson backend test API",
+	"description": "Drayson tech test to create a fictional product.",
+	"order": [],
+	"folders": [
+		{
+			"id": "e1490065-0761-b1ca-a2d3-d993dbf5bd21",
+			"name": "products",
+			"description": "Folder for products",
+			"order": [
+				"bf56cda3-22ad-6ce9-8ba8-10267ac042f1"
+			],
+			"owner": "158199"
+		},
+		{
+			"id": "86b17a16-9e82-c972-e697-964de28622ed",
+			"name": "product",
+			"description": "Folder for product",
+			"order": [
+				"cb532214-5488-8bd0-0aa1-bda59dd27068",
+				"e81b3c86-e56f-0058-74ef-98ca02f7fa2b",
+				"1e267b30-16eb-3cde-e1b2-b73ad5038bb2",
+				"414a8e9f-d448-0e2c-594f-fdd83b614f84",
+				"974fb80b-405a-754e-cd38-9e557efb5d69",
+				"2265a942-cfd2-e6cc-2cd4-7a9703378d5c",
+				"530e99e4-8ed1-ae24-d2c2-cb442933ddd6",
+				"8ccc8cdf-a88e-67c5-a305-86b2b9550594",
+				"f4ac4f18-cfa0-0c82-24fb-894b8a668199"
+			],
+			"owner": "158199",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec"
+		},
+		{
+			"id": "6ecc6f02-5d57-03ec-5116-dc8808bef250",
+			"name": "initial_state",
+			"description": "",
+			"order": [
+				"c54a4628-4b77-0a6f-ea75-bf2439f8ed26"
+			],
+			"owner": "158199"
+		}
+	],
+	"timestamp": 1413302258635,
+	"owner": "158199",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "1e267b30-16eb-3cde-e1b2-b73ad5038bb2",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/400",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271474005,
+			"name": "Get non-existent product",
+			"description": "Return a single product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "2265a942-cfd2-e6cc-2cd4-7a9703378d5c",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Product name\"] = jsonData.name === \"UpdatedTestName\";\ntests[\"Product price\"] = jsonData.price === \"9.93\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271283445,
+			"name": "Get single product again",
+			"description": "Return a single product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "414a8e9f-d448-0e2c-594f-fdd83b614f84",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "name",
+					"value": "UpdatedTestName",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271397188,
+			"name": "Update a single product",
+			"description": "Update a product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "530e99e4-8ed1-ae24-d2c2-cb442933ddd6",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271273656,
+			"name": "Delete single product",
+			"description": "Delete a product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "8ccc8cdf-a88e-67c5-a305-86b2b9550594",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "DELETE",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271641224,
+			"name": "Delete non-existent product",
+			"description": "Delete a product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "974fb80b-405a-754e-cd38-9e557efb5d69",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/402",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [
+				{
+					"key": "name",
+					"value": "UpdatedTestName",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271633575,
+			"name": "Update a nonexistent product",
+			"description": "Update a product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "bf56cda3-22ad-6ce9-8ba8-10267ac042f1",
+			"headers": "",
+			"url": "http://localhost:5000/v1/products",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests['Length of array'] = jsonData.length === 3;\ntests[\"First product name\"] = jsonData[0].name === \"Lavender heart\";\ntests[\"First product price\"] = jsonData[0].price === \"9.25\";\ntests[\"First product id\"] = jsonData[0].id === 1;\n\ntests[\"Second product name\"] = jsonData[1].name === \"Personalised cufflinks\";\ntests[\"Second product price\"] = jsonData[1].price === \"45.00\";\ntests[\"Second product id\"] = jsonData[1].id === 2;\n\ntests[\"Third product name\"] = jsonData[2].name === \"Kids T-shirt\";\ntests[\"Third product price\"] = jsonData[2].price === \"19.95\";\ntests[\"Third product id\"] = jsonData[2].id === 3;\n\n\n\n\n\nvar schema = {\n \"type\":\"array\",\n \"items\": {\n\t\"properties\": {\n\t\t\"id\": {\n\t\t\t\"type\": \"integer\",\n\t\t\t\"example\": 1,\n\t\t\t\"description\": \"the id of the product\"\n\t\t},\n\t\t\"price\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": 9.25,\n\t\t\t\"description\": \"price, in pounds\"\n\t\t},\n\t\t\"name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": \"Lavender heart\",\n\t\t\t\"description\": \"the name of the product\"\n\t\t}\n\t},\n\t\"description\": \"A product\",\n        \"required\":[\"id\",\"price\",\"name\"]\n }\n};\n\n\nconsole.log(tv4.error);\ntests[\"Valid Data1\"] = tv4.validate(jsonData, schema);\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271271884,
+			"name": "Get final state",
+			"description": "Return a list of products",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "c54a4628-4b77-0a6f-ea75-bf2439f8ed26",
+			"headers": "",
+			"url": "http://localhost:5000/v1/products",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var jsonData = JSON.parse(responseBody);\n\ntests[\"Status code is 200\"] = responseCode.code === 200;\n\ntests['Length of array'] = jsonData.length === 3;\ntests[\"First product name\"] = jsonData[0].name === \"Lavender heart\";\ntests[\"First product price\"] = jsonData[0].price === \"9.25\";\ntests[\"First product id\"] = jsonData[0].id === 1;\n\ntests[\"Second product name\"] = jsonData[1].name === \"Personalised cufflinks\";\ntests[\"Second product price\"] = jsonData[1].price === \"45.00\";\ntests[\"Second product id\"] = jsonData[1].id === 2;\n\ntests[\"Third product name\"] = jsonData[2].name === \"Kids T-shirt\";\ntests[\"Third product price\"] = jsonData[2].price === \"19.95\";\ntests[\"Third product id\"] = jsonData[2].id === 3;\n\n\n\n\n\nvar schema = {\n \"type\":\"array\",\n \"items\": {\n\t\"properties\": {\n\t\t\"id\": {\n\t\t\t\"type\": \"integer\",\n\t\t\t\"example\": 1,\n\t\t\t\"description\": \"the id of the product\"\n\t\t},\n\t\t\"price\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": 9.25,\n\t\t\t\"description\": \"price, in pounds\"\n\t\t},\n\t\t\"name\": {\n\t\t\t\"type\": \"string\",\n\t\t\t\"example\": \"Lavender heart\",\n\t\t\t\"description\": \"the name of the product\"\n\t\t}\n\t},\n\t\"description\": \"A product\",\n        \"required\":[\"id\",\"price\",\"name\"]\n }\n};\n\n\nconsole.log(tv4.error);\ntests[\"Valid Data1\"] = tv4.validate(jsonData, schema);\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456270718320,
+			"name": "Get initial state",
+			"description": "Return a list of products",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "cb532214-5488-8bd0-0aa1-bda59dd27068",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "TestName",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "price",
+					"value": "9.93",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456270986238,
+			"name": "Create a single product",
+			"description": "",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "e81b3c86-e56f-0058-74ef-98ca02f7fa2b",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Product name\"] = jsonData.name === \"TestName\";\ntests[\"Product price\"] = jsonData.price === \"9.93\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271052355,
+			"name": "Get single product",
+			"description": "Return a single product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		},
+		{
+			"id": "f4ac4f18-cfa0-0c82-24fb-894b8a668199",
+			"headers": "",
+			"url": "http://localhost:5000/v1/product/4",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "size",
+					"value": "original",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 404\"] = responseCode.code === 404;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1456271511342,
+			"name": "Confirm deletion",
+			"description": "Return a single product",
+			"collectionId": "9ce4dd70-f149-e049-97bf-abc61cd343ec",
+			"responses": []
+		}
+	]
+}
